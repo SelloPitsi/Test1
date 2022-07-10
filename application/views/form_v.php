@@ -56,7 +56,7 @@
 		    </div>
 		     <div class="form-group col-md-6" >
 		      <label for="inputEmail4">Date of Birth</label>
-		      <input type="date" class="form-control" id="dob" name="dob" max="<?php echo date("Y-m-d") ?>" value="<?php echo  ($reset) ? "" : set_value('dob'); ?>">
+		      <input type="text" class="form-control" id="dob" name="dob" placeholder="dd/mm/yyyy" value="<?php echo  ($reset) ? "" : set_value('dob'); ?>">
 		      
 		    </div>
 		  </div>

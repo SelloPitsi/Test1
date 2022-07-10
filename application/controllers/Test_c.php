@@ -109,7 +109,14 @@ class Test_c extends CI_Controller {
 
 	function is_start_date_valid($date) {
 
-		if (date('Y-m-d', strtotime($date)) == $date) {
+		if(empty($date)){
+			$this->form_validation->set_message('is_start_date_valid', 'The {field} must be in format "dd/mm/yyyy"');
+			return FALSE;
+		}else if(substr($date, 2, 1) != "/"){
+			$this->form_validation->set_message('is_start_date_valid', 'The {field} must be in format "dd/mm/yyyy"');
+			return FALSE;
+		}
+		else if(checkdate(substr($date, 3, 2), substr($date, 0, 2), substr($date, 6, 4))){
 			return TRUE;
 		} else {
 			$this->form_validation->set_message('is_start_date_valid', 'The {field} must be in format "dd/mm/yyyy"');
